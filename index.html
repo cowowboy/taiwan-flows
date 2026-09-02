@@ -1401,7 +1401,11 @@ document.getElementById("xlsxBtn").onclick=buildExcel;
 
 // ---------- 手動觸發 GitHub Actions（daily-flows）重新抓資料 ----------
 // Token 只存在瀏覽器本機 localStorage，不進頁面原始碼、不上傳。Shift+點 可重設 Token。
-const GH_REPO="shihpc/taiwan-flows", GH_WF="daily.yml";  // 工作流程檔名（name 為 daily-flows）
+// ── 單一換址點（前端）──────────────────────────────────────────────
+// 這個站沒有讀 raw 資料（都走自己 repo 的相對路徑），所以只需要 GitHub 帳號。
+// 換帳號只改 SITE.owner；tests 沒有這個 repo，改動請自行確認。
+const SITE = { owner: "cowowboy" };
+const GH_REPO=`${SITE.owner}/taiwan-flows`, GH_WF="daily.yml";  // 工作流程檔名（name 為 daily-flows）
 async function triggerUpdate(reset){
   let tok = reset ? null : localStorage.getItem("tf_gh_token");
   if(!tok){
@@ -1454,7 +1458,7 @@ async function loadSiteVer(){
     let v = null;
     try{ v = JSON.parse(sessionStorage.getItem(KEY)); }catch(e){}
     if (!v || !v.sha){
-      const r = await fetch("https://api.github.com/repos/shihpc/taiwan-flows/commits/main",
+      const r = await fetch(`https://api.github.com/repos/${SITE.owner}/taiwan-flows/commits/main`,
                             { headers: { Accept: "application/vnd.github+json" } });
       if (!r.ok) return;
       const j = await r.json();
