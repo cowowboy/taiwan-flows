@@ -1,1 +1,1 @@
-{"date":"2026-09-28","status":"no_data","note":"非交易日或資料尚未更新","sources":{"daily":"2026-09-24","totals":"2026-09-24","futures":"2026-09-24","foreign":"2026-09-24"},"checked_at":"2026-09-29T04:09:19.858922+08:00"}
+{"date":"2026-09-28","status":"no_data","note":"非交易日或資料尚未更新","sources":{"daily":"2026-09-24","totals":"2026-09-24","futures":"2026-09-24","foreign":"2026-09-24"},"checked_at":"2026-09-29T05:21:59.755311+08:00","healthcheck":{"date":"2026-09-24","checked_at":"2026-09-29T05:21:59.748182+08:00","severity":"ok","compared":2603,"mismatch":0,"mismatch_pct":0.0,"worst":[]}}
